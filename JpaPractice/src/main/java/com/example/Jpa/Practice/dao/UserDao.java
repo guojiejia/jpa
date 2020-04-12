@@ -10,5 +10,5 @@ import com.example.Jpa.Practice.entity.User;
 
 @Repository
 public interface UserDao extends JpaRepository<User, Long>  , JpaSpecificationExecutor<User>{
-//	public List<User> findUserByUserId(String userId);
+	public List<User> findUserByUserId(String userId);
 }
