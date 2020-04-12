@@ -1,4 +1,4 @@
-package com.example.Jpa.Study.controller;
+package com.example.Jpa.Practice.controller;
 
 import java.util.List;
 
@@ -11,14 +11,14 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.Jpa.Study.dto.AddOrderDetailRequestDto;
-import com.example.Jpa.Study.entity.OrderDetail;
-import com.example.Jpa.Study.service.JpaStudyService;
+import com.example.Jpa.Practice.dto.AddOrderDetailRequestDto;
+import com.example.Jpa.Practice.entity.OrderDetail;
+import com.example.Jpa.Practice.service.JpaPracticeService;
 
 @Controller
-public class JpaStudyController {
+public class JpaPracticeController {
 	@Autowired
-	private JpaStudyService  jpaStudyService;
+	private JpaPracticeService  jpaStudyService;
 	
 	@RequestMapping("/")
 	public String index() {return "redirect:OrdersDetail/list";}

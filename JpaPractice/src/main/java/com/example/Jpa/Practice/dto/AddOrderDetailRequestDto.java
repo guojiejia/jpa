@@ -1,4 +1,4 @@
-package com.example.Jpa.Study.dto;
+package com.example.Jpa.Practice.dto;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;

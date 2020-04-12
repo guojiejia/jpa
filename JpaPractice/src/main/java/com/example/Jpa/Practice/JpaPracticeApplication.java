@@ -1,4 +1,4 @@
-package com.example.Jpa.Study;
+package com.example.Jpa.Practice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,14 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-//@ComponentScan(basePackages = {"dao","entity","service","controller"})
-public class JpaStudyApplication extends SpringBootServletInitializer{
+public class JpaPracticeApplication extends SpringBootServletInitializer{
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-		return builder.sources(JpaStudyApplication.class);
+		return builder.sources(JpaPracticeApplication.class);
 	}
 	public static void main(String[] args) {
-		SpringApplication.run(JpaStudyApplication.class, args);
+		SpringApplication.run(JpaPracticeApplication.class, args);
 	}
 }

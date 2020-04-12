@@ -12,18 +12,19 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.example.Jpa.Study.dao.itemDao;
-import com.example.Jpa.Study.dao.orderDao;
-import com.example.Jpa.Study.dao.orderDetailDao;
-import com.example.Jpa.Study.dao.userDao;
-import com.example.Jpa.Study.entity.Goods;
-import com.example.Jpa.Study.entity.Order;
-import com.example.Jpa.Study.entity.OrderDetail;
-import com.example.Jpa.Study.entity.User;
-import com.example.Jpa.Study.service.JpaStudyService;
+import com.example.Jpa.Practice.JpaPracticeApplication;
+import com.example.Jpa.Practice.dao.itemDao;
+import com.example.Jpa.Practice.dao.orderDao;
+import com.example.Jpa.Practice.dao.orderDetailDao;
+import com.example.Jpa.Practice.dao.userDao;
+import com.example.Jpa.Practice.entity.Goods;
+import com.example.Jpa.Practice.entity.Order;
+import com.example.Jpa.Practice.entity.OrderDetail;
+import com.example.Jpa.Practice.entity.User;
+import com.example.Jpa.Practice.service.JpaPracticeService;
 
 
-@SpringBootTest(classes = JpaStudyApplication.class)
+@SpringBootTest(classes = JpaPracticeApplication.class)
 class JpaStudyApplicationTests {
 	
 	@Autowired
@@ -34,7 +35,7 @@ class JpaStudyApplicationTests {
 	private orderDetailDao orderDetailDao;
 	
 	@Autowired
-	private JpaStudyService jpaStudyServiceTest;
+	private JpaPracticeService jpaStudyServiceTest;
 	
 	@Autowired
 	private orderDao ordersDao;

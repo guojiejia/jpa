@@ -1,4 +1,4 @@
-package com.example.Jpa.Study.entity;
+package com.example.Jpa.Practice.entity;
 
 import java.util.Date;
 
