@@ -1,5 +1,7 @@
 package com.example.Jpa.Practice.entity;
 
+import java.io.Serializable;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -17,26 +19,36 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "user")
-public class User {
+public class User implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
+	
+	@Column(name = "user_id", unique=true, nullable=false)
+	private String userId;
 
-	@Column(name = "username")
-	private String username;
+	@Column(name = "name")
+	private String name;
 
 	@Column(name = "birthday")
-	private String birthday;
+	private Date birthday;
+
+	@Column(name = "level")
+	private Integer level;
 
 	@Column(name = "sex")
-	private String sex;
+	private Boolean sex = false;
 
-	@Column(name = "adress")
-	private String adress;
+	@Column(name = "address")
+	private String address;
 	
-	@OneToMany(fetch = FetchType.LAZY)
+	@Column(name = "phone_num")
+	private String phoneNum;
+	
+	@OneToMany(targetEntity = OrderForm.class, fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
-	private Set<Order> listOrders ;
+	private Set<OrderForm> orderList;
 }

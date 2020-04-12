@@ -1,5 +1,6 @@
 package com.example.Jpa.Practice.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -9,27 +10,33 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Entity
 @Data
-@Table(name="item")
-public class Goods {
+@Table(name="goods")
+public class Goods implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(name = "goods_id", unique=true, nullable=false)
+	private Long goodsId;
+	
 	@Column(name = "name" )
 	private String name;
+	
+	@Column(name = "colour" )
+	private String colour;
 	
 	@Column(name = "detail" )
 	private String detail;
 	
 	@Column(name = "price" )
 	private String price;
-	
-	@Column(name = "createTime" )
-	private Date createTime;
 }

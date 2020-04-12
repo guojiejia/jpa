@@ -7,10 +7,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.Jpa.Practice.dao.orderDao;
-import com.example.Jpa.Practice.dao.orderDetailDao;
-import com.example.Jpa.Practice.dao.userDao;
-import com.example.Jpa.Practice.entity.Order;
+import com.example.Jpa.Practice.dao.OrderDetailDao;
+import com.example.Jpa.Practice.dao.OrderFormDao;
+import com.example.Jpa.Practice.dao.UserDao;
+import com.example.Jpa.Practice.entity.OrderForm;
 import com.example.Jpa.Practice.entity.OrderDetail;
 import com.example.Jpa.Practice.entity.User;
 
@@ -18,28 +18,12 @@ import com.example.Jpa.Practice.entity.User;
 public class JpaPracticeService {
 
 	@Autowired
-	private orderDetailDao orderDetailDao;
+	private UserDao userDao;
 	
-	@Autowired
-	private userDao userDao;
-	
-	@Autowired
-	private orderDao orderDao;
-	
-	public List<OrderDetail> findDetails (Integer userId){
-		List<OrderDetail> listOrdersDetail = new ArrayList<OrderDetail>();
-		Optional<User> user = userDao.findById(userId);
-		List<Optional<Order>> listOrder = orderDao.findAllByUser(user);
-		for (Optional<Order> item : listOrder) {
-			listOrdersDetail.addAll(orderDetailDao.findAllByOrder(item));
-		}
-		return listOrdersDetail;		
-	}
-	
-//	public List<ordersDetail> editoOrderDetails(Integer userId){
-//		
-//		return null;
-//	}
-	
+	public List<User> findUserByUserId (String userId){
+		List<User> userList = new ArrayList<User>();
+		userList = userDao.findUserByUserId(userId);
 
+		return userList;
+	}
 }

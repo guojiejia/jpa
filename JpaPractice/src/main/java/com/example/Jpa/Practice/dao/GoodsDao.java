@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import com.example.Jpa.Practice.entity.Goods;
 @Repository
-public interface itemDao extends JpaRepository<Goods,Integer>  , JpaSpecificationExecutor<Goods>{
+public interface GoodsDao extends JpaRepository<Goods,Integer>  , JpaSpecificationExecutor<Goods>{
 
 }
