@@ -5,11 +5,13 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.Jpa.Practice.JpaPracticeApplication;
+import com.example.Jpa.Practice.controller.JpaPracticeController;
 import com.example.Jpa.Practice.dao.GoodsDao;
 import com.example.Jpa.Practice.dao.OrderFormDao;
 import com.example.Jpa.Practice.dao.OrderDetailDao;
@@ -18,7 +20,6 @@ import com.example.Jpa.Practice.entity.Goods;
 import com.example.Jpa.Practice.entity.OrderForm;
 import com.example.Jpa.Practice.entity.OrderDetail;
 import com.example.Jpa.Practice.entity.User;
-import com.example.Jpa.Practice.service.JpaPracticeService;
 
 
 @SpringBootTest(classes = JpaPracticeApplication.class)
@@ -37,11 +38,33 @@ class JpaPracticeApplicationTests {
 	private UserDao userdao;
 	
 	@Autowired
-	private JpaPracticeService jpaPracticesServiceTest;
+	private JpaPracticeController jpaPracticeController;
+	
+	private String userId = "u0_id";
 	
 	@Test
-	public void addUser() {
-		// goods_book
+	public void getUserInfoByUserId() {
+		User user = jpaPracticeController.getUserInfo(userId);
+		System.out.println("user: " + user);
+	}
+	
+//	@Test
+//	public void findAllOrderDetail() {
+//		Optional<Order> newOrder = orderFormDao.findById(1);		
+//		List<OrderDetail> findAllByOrder = orderDetailDao.findAllByOrder(newOrder);
+//		for(OrderDetail item : findAllByOrder) {
+//			System.out.println(item.getItem());
+//		}
+//	}
+	
+	@BeforeEach
+	public void addUserTest() {
+		userdao.deleteAll();
+		orderFormDao.deleteAll();
+		orderDetailDao.deleteAll();
+		goodsDao.deleteAll();
+		
+		// add goods(book)
 		Goods g0 = new Goods();
 		g0.setColour("red");
 		g0.setDetail("good0 details");
@@ -50,28 +73,28 @@ class JpaPracticeApplicationTests {
 		g0.setPrice("998");
 		goodsDao.save(g0);
 		
-		// goods_book
+		// add goods(PC)
 		Goods g1 = new Goods();
 		g1.setColour("green");
 		g1.setDetail("good1 details");
 		g1.setGoodsId((long) 456);
-		g1.setName("pc");
+		g1.setName("PC");
 		g1.setPrice("1020");
 		goodsDao.save(g1);
 		
-		// orderDetail_od0
+		// add orderDetail(od0)
 		OrderDetail od0 = new OrderDetail();
 		od0.setGoods(g0);
 		od0.setNumber(4);
 		orderDetailDao.save(od0);
 		
-		// orderDetail_od1
+		// add orderDetail(od1)
 		OrderDetail od1 = new OrderDetail();
 		od1.setGoods(g1);
 		od1.setNumber(5);
 		orderDetailDao.save(od1);
 		
-		// orderForm_o0
+		// add orderForm(o0)
 		OrderForm o0 = new OrderForm();
 		o0.setOrderFormId(1234);
 		Set<OrderDetail> ordersDetailList0 = new HashSet<OrderDetail>();
@@ -80,7 +103,7 @@ class JpaPracticeApplicationTests {
 		o0.setOrdersDetailList(ordersDetailList0);
 		orderFormDao.save(o0);
 		
-		// orderForm_o1
+		// add orderForm(o0)
 		OrderForm o1 = new OrderForm();
 		o1.setOrderFormId(2345);
 		Set<OrderDetail> ordersDetailList1 = new HashSet<OrderDetail>();
@@ -89,7 +112,7 @@ class JpaPracticeApplicationTests {
 		o1.setOrdersDetailList(ordersDetailList1);
 		orderFormDao.save(o1);
 		
-		// user_u0
+		// add user(u0)
 		User u0 = new User();
 		u0.setAddress("u0的地址");
 		u0.setBirthday((java.util.Date) new Date());
@@ -101,18 +124,9 @@ class JpaPracticeApplicationTests {
 		u0.setOrderList(ordersList);
 		u0.setPhoneNum("187-0938-9837");
 		u0.setSex(true);
-		u0.setUserId("u0_id");
+		u0.setUserId(userId);
 		u0.setId((long) 0);
 		userdao.save(u0);
 		System.out.println("test over !");
 	}
-	
-//	@Test
-//	public void findAllOrderDetail() {
-//		Optional<Order> newOrder = orderFormDao.findById(1);		
-//		List<OrderDetail> findAllByOrder = orderDetailDao.findAllByOrder(newOrder);
-//		for(OrderDetail item : findAllByOrder) {
-//			System.out.println(item.getItem());
-//		}
-//	}
 }

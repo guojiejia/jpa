@@ -49,7 +49,7 @@ public class User implements Serializable {
 	@Column(name = "phone_num")
 	private String phoneNum;
 	
-	@OneToMany(targetEntity = OrderForm.class, fetch = FetchType.LAZY)
+	@OneToMany(targetEntity = OrderForm.class, fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_id")
 	private Set<OrderForm> orderList = new HashSet<OrderForm>();
 }

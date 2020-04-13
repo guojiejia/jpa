@@ -14,11 +14,10 @@ public class JpaPracticeController {
 	@Autowired
 	private JpaPracticeService  jpaPracticeService;
 	
-	@RequestMapping("user_list")
-	public String getUserList(Model model, String userId) {
-		List<User> userList = jpaPracticeService.findUserByUserId(userId);
-		model.addAttribute("OrdersDetails",userList);
-		return "user_list";
+	@RequestMapping("user_info")
+	public User getUserInfo(String userId) {
+		User user = jpaPracticeService.findUserByUserId(userId);
+		return user;
 	}
 //	
 //	@RequestMapping("/")

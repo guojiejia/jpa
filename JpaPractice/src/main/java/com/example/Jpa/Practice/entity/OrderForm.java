@@ -8,7 +8,6 @@ import javax.persistence.*;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import lombok.Builder;
 import lombok.Data;
 
 @Entity
@@ -33,7 +32,7 @@ public class OrderForm {
 	//@JoinColumn(name = "user_id" )
 	//private User user;
 
-	@OneToMany(targetEntity = OrderDetail.class, fetch = FetchType.LAZY)
+	@OneToMany(targetEntity = OrderDetail.class, fetch = FetchType.EAGER)
 	@JoinColumn(name = "order_form_id")
 	private Set<OrderDetail> ordersDetailList = new HashSet<OrderDetail>();
 }
