@@ -2,6 +2,7 @@ package com.example.Jpa.Practice.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -50,5 +51,5 @@ public class User implements Serializable {
 	
 	@OneToMany(targetEntity = OrderForm.class, fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
-	private Set<OrderForm> orderList;
+	private Set<OrderForm> orderList = new HashSet<OrderForm>();
 }

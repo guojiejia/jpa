@@ -27,17 +27,15 @@ public class OrderDetail implements Serializable {
 	@Column(name = "id" )
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long  id;
-//	
-//	@Column(name = "order_detail_id", unique=true, nullable=false)
-//	private Long orderDetailId;
 	
 	@Column(name="number")
 	private int number = 1;
 	
-//	@ManyToOne
-//	private OrderForm orderForm;
-	
 	@OneToOne
 	@JoinColumn(name="goods_id", referencedColumnName="goods_id")
 	private Goods goods;
+	
+	//@ManyToOne(targetEntity = OrderForm.class , cascade = CascadeType.ALL , fetch = FetchType.LAZY ,optional = true)
+	//@JoinColumn(name = "order_form_id" )
+	//private OrderForm orderForm;
 }

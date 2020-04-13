@@ -1,14 +1,9 @@
-package com.example.Jpa.Study;
+package com.example.Jpa.Practice;
 
 
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
 import java.util.Set;
-
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +22,7 @@ import com.example.Jpa.Practice.service.JpaPracticeService;
 
 
 @SpringBootTest(classes = JpaPracticeApplication.class)
-class JpaStudyApplicationTests {
+class JpaPracticeApplicationTests {
 
 	@Autowired
 	private GoodsDao goodsDao;
@@ -119,6 +114,5 @@ class JpaStudyApplicationTests {
 //		for(OrderDetail item : findAllByOrder) {
 //			System.out.println(item.getItem());
 //		}
-//		
 //	}
 }

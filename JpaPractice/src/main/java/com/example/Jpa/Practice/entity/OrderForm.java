@@ -29,8 +29,11 @@ public class OrderForm {
     @Column(name = "create_time")
     @CreationTimestamp
     private Date createTime;
+	//@ManyToOne(cascade = CascadeType.ALL , fetch =FetchType.EAGER , optional = false)
+	//@JoinColumn(name = "user_id" )
+	//private User user;
 
 	@OneToMany(targetEntity = OrderDetail.class, fetch = FetchType.LAZY)
-	@JoinColumn(name = "order_detail_id")
+	@JoinColumn(name = "order_form_id")
 	private Set<OrderDetail> ordersDetailList = new HashSet<OrderDetail>();
 }
