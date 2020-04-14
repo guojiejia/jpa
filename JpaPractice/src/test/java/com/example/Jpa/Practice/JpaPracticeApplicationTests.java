@@ -43,19 +43,16 @@ class JpaPracticeApplicationTests {
 	private String userId = "u0_id";
 	
 	@Test
-	public void getUserInfoByUserId() {
+	public void getUserInfoByUserIdTest() {
 		User user = jpaPracticeController.getUserInfo(userId);
 		System.out.println("user: " + user);
 	}
 	
-//	@Test
-//	public void findAllOrderDetail() {
-//		Optional<Order> newOrder = orderFormDao.findById(1);		
-//		List<OrderDetail> findAllByOrder = orderDetailDao.findAllByOrder(newOrder);
-//		for(OrderDetail item : findAllByOrder) {
-//			System.out.println(item.getItem());
-//		}
-//	}
+	@Test
+	public void updateGoodsPriceByGoodsIdTest() {
+		Integer effectNum = jpaPracticeController.updateGoodsPriceByGoodsId("666", (long) 123, (long) 1);
+		System.out.println("effectNum: " + effectNum);
+	}
 	
 	@BeforeEach
 	public void addUserTest() {
@@ -127,6 +124,6 @@ class JpaPracticeApplicationTests {
 		u0.setUserId(userId);
 		u0.setId((long) 0);
 		userdao.save(u0);
-		System.out.println("test over !");
+		System.out.println("add date success!!!");
 	}
 }

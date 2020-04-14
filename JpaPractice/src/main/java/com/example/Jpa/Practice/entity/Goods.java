@@ -25,15 +25,18 @@ public class Goods implements Serializable {
 	@Column(name = "goods_id", unique=true, nullable=false)
 	private Long goodsId;
 	
-	@Column(name = "name" )
+	@Column(name = "name")
 	private String name;
 	
-	@Column(name = "colour" )
+	@Column(name = "colour")
 	private String colour;
 	
-	@Column(name = "detail" )
+	@Column(name = "detail")
 	private String detail;
 	
-	@Column(name = "price" )
+	@Column(name = "price")
 	private String price;
+	
+	@Column(name = "version")
+	private Long version = (long) 1;
 }
